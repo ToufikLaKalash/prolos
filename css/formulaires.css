@@ -1,0 +1,17 @@
+form{
+    float: left;
+}
+
+label{
+    font-family: "PT Sans";
+    font-size: 18px;
+}
+
+td{
+    width: 175px;
+}
+
+input{
+    width: 75%;
+    height: 30px;
+}
