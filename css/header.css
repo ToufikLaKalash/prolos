@@ -1,0 +1,51 @@
+header{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+header div{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header div:nth-child(1) img:nth-child(1){
+    transform: scaleX(-1);
+}
+
+.menu ul{
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li{
+    display: inline-block;
+    background-color: rgb(75, 75, 75);
+    text-align: center;
+    width: 33%;
+}
+
+.menu a{
+    display: block;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-family: "PT Sans";
+    height: 40px;
+    line-height: 1.5em;
+    font-size: 1.2em;
+}
+
+.menu a:hover{
+    background-color: rgb(40, 40, 40);
+}
+
+@media screen and (max-width: 800px){
+    .menu li{
+        width: 100%;
+    }
+}
