@@ -1,11 +1,17 @@
 <?php
-    $mysqli = new mysqli("localhost", "root", "", "news");
-    if ($mysqli->connect_errno) {
-        echo "Echec lors de la connexion à MySQL : " . $mysqli->connect_error;
-    }
-    $res = $mysqli->query("set names utf8");
-?>
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "newsdb";
 
+    // On crée la connexion au serveur de base de données
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // On vérifie que ça a marché
+    if ($conn->connect_error) {
+        die("La connexion a échouée: " . $conn->connect_error);
+    }
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -34,10 +40,10 @@
         <main>
             <section>
                 <?php
-                    $res = $mysqli->query("SELECT COUNT(*) FROM news_table");
+                    $res = $conn->query('SELECT COUNT(*) FROM news;');
                     $nb_news = $res->fetch_assoc();
                     for($i = 1;$i<=$nb_news['COUNT(*)'];$i++){
-                        $res = $mysqli->query("SELECT * FROM news_table WHERE id='".$i."'");
+                        $res = $conn->query("SELECT * FROM news WHERE id='".$i."'");
                         $valeurs = $res->fetch_assoc();
                         echo "<div class='news' style=\"background: url('".$valeurs['image']."') no-repeat; background-size: 100% 100%; background-color: #FFF;\">";
                         echo "";
